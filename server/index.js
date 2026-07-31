@@ -1,4 +1,5 @@
 import express from 'express';
+import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -45,9 +46,31 @@ app.use((req, res, next) => {
 
 // --- API -------------------------------------------------------------------
 
+/**
+ * The owner's profile photo is optional. Rather than let the browser probe for
+ * it and log a 404 on every page load, report here whether it is actually on
+ * disk; the frontend falls back to the "SG" monogram when it is not.
+ * Checked per request so dropping the file in does not need a restart.
+ */
+const PROFILE_PHOTO_CANDIDATES = [
+  '/assets/img/profile.jpg',
+  '/assets/img/profile.jpeg',
+  '/assets/img/profile.png',
+  '/assets/img/profile.webp',
+];
+
+function findProfilePhoto() {
+  return (
+    PROFILE_PHOTO_CANDIDATES.find((rel) =>
+      existsSync(join(publicDir, rel.replace(/^\//, ''))),
+    ) || null
+  );
+}
+
 /** Public site configuration, consumed by the frontend on every page. */
 app.get('/api/config', (req, res) => {
   res.json({
+    profilePhoto: findProfilePhoto(),
     name: site.name,
     owner: site.owner,
     tagline: site.tagline,

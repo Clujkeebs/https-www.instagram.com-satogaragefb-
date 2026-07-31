@@ -56,6 +56,13 @@ function fillLinkSlots(config) {
     }
   });
 
+  // Handle shown inline inside a sentence, where the link text must stay put.
+  if (config.instagramHandle) {
+    document.querySelectorAll('[data-ig-handle]').forEach((el) => {
+      el.textContent = `@${config.instagramHandle}`;
+    });
+  }
+
   // Hide any contact row whose value was intentionally left blank in the config.
   document.querySelectorAll('[data-requires]').forEach((el) => {
     const key = el.dataset.requires;
@@ -112,6 +119,56 @@ function renderProcessSteps(config) {
   );
 }
 
+/**
+ * Swap the "SG" monogram for the owner's profile photo, but only when the
+ * server says the file is actually there — that keeps a missing photo from
+ * logging a 404 on every page load. No photo = monogram stays, nothing breaks.
+ */
+function setupAvatar(config) {
+  const slots = document.querySelectorAll('.avatar__img');
+  if (slots.length === 0 || !config?.profilePhoto) return;
+
+  // alt stays empty on purpose: every avatar sits next to text that already
+  // names the shop, so announcing it again is just noise for screen readers.
+  slots.forEach((img) => {
+    img.src = config.profilePhoto;
+  });
+  document.documentElement.classList.add('has-avatar');
+}
+
+/**
+ * Reveal-on-scroll. The stylesheet hides .reveal elements up front to avoid a
+ * flash, so this must always finish the job — hence the unsupported-browser
+ * path and the safety timeout.
+ */
+function setupReveal() {
+  const items = document.querySelectorAll('.reveal');
+  if (items.length === 0) return;
+
+  const showAll = () => items.forEach((el) => el.classList.add('is-visible'));
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) {
+    showAll();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+  );
+
+  items.forEach((el) => observer.observe(el));
+  // head.js holds an independent backstop timer in case this file never runs.
+}
+
 function setupNav() {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primary-nav');
@@ -150,6 +207,7 @@ function stampYear() {
 
 export function applyConfig(config) {
   if (!config) return;
+  setupAvatar(config);
   fillTextSlots(config);
   fillLinkSlots(config);
   renderServiceCards(config);
@@ -160,7 +218,14 @@ export function applyConfig(config) {
   }
 }
 
-setupNav();
-markCurrentPage();
-stampYear();
+// Wrapped so a failure in one enhancement cannot leave .reveal content hidden.
+try {
+  setupNav();
+  markCurrentPage();
+  stampYear();
+} catch (err) {
+  console.error('[site] setup failed:', err);
+}
+
+setupReveal();
 getConfig().then(applyConfig);

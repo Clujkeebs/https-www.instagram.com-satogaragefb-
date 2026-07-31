@@ -65,11 +65,25 @@ is marked with `<!-- EDIT -->` comments:
 | `public/order.html` | Order Custom |
 | `public/404.html` | Not-found page |
 
-### 3. Photos
+### 3. The profile photo
+
+**Save the Instagram profile picture as `public/assets/img/profile.jpg`.**
+That is the whole job — it then appears in the header, the hero chip, the
+Instagram band and the About page automatically. No restart and no code change:
+the server checks for the file per request. `.jpeg`, `.png` and `.webp` work
+too.
+
+Until that file exists, every one of those spots shows an "SG" monogram
+instead, so nothing looks broken in the meantime.
+
+> I could not download the photo myself — Instagram blocks logged-out requests
+> to the profile, so it has to be saved by hand from a signed-in browser.
+
+### 4. Deck photos
 
 There are three placeholder blocks (`<div class="split__media">…</div>`) marked
-in the HTML. Drop real deck photos into `public/assets/img/` and swap each
-block for:
+in the HTML, plus six tiles in the Instagram grid on the home page. Drop real
+deck photos into `public/assets/img/` and swap each block for:
 
 ```html
 <div class="split__media">
@@ -78,6 +92,12 @@ block for:
 ```
 
 The styling already handles the cropping.
+
+### 5. Colours
+
+The whole palette is six variables at the top of
+`public/assets/css/styles.css` (`--bg`, `--accent`, and friends). Changing
+`--accent` re-themes the entire site, hazard stripes included.
 
 ---
 
