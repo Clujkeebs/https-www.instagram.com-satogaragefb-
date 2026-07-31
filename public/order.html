@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order Custom — Sato Garage</title>
+    <meta
+      name="description"
+      content="Tell Sato Garage about your project: the vehicle, the work you want and your budget. Every request gets a real answer."
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230d0e10'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Impact,sans-serif' fill='%23ff6b1a'>SG</text></svg>"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true">SG</span>
+          <span data-site="name">Sato Garage</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          Menu
+        </button>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/order">Order Custom</a>
+          <a class="btn btn--primary" href="/order">Start a build</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero__inner">
+          <span class="eyebrow">Custom order</span>
+          <h1>Tell us <span class="accent">what you want built.</span></h1>
+          <p class="hero__lead">
+            The more detail you give, the more useful the first reply will be.
+            There are no wrong answers here — if you are not sure yet, say so.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap order-layout">
+          <div>
+            <!-- Success state, revealed after a successful submission -->
+            <div
+              class="success-panel hidden"
+              id="order-success"
+              role="status"
+              tabindex="-1"
+            >
+              <div class="success-panel__mark" aria-hidden="true">✓</div>
+              <h2>Request received</h2>
+              <p>Quote this reference if you follow up:</p>
+              <div class="reference" id="order-reference">SG-000000</div>
+              <p>
+                We read every request personally, so it will be a real reply
+                rather than an autoresponder — usually within a couple of days.
+              </p>
+              <a class="btn btn--ghost" href="/">Back to the home page</a>
+            </div>
+
+            <div id="order-form-section">
+              <div class="form-card">
+                <form id="order-form" novalidate>
+                  <div class="form-grid">
+                    <div class="field" data-field="name">
+                      <label for="name">
+                        Your name <span class="req" aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        maxlength="80"
+                        required
+                      />
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="email">
+                      <label for="email">
+                        Email <span class="req" aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        maxlength="160"
+                        required
+                      />
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="phone">
+                      <label for="phone">
+                        Phone <span class="hint">(optional)</span>
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        autocomplete="tel"
+                        maxlength="40"
+                      />
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="vehicle">
+                      <label for="vehicle">
+                        Vehicle <span class="req" aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="vehicle"
+                        name="vehicle"
+                        placeholder="Year, make and model"
+                        maxlength="120"
+                        required
+                      />
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field field--full" data-field="service">
+                      <label for="service">
+                        Type of work <span class="req" aria-hidden="true">*</span>
+                      </label>
+                      <select id="service" name="service" required>
+                        <option value="" disabled selected>
+                          Choose the type of work…
+                        </option>
+                      </select>
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="budget">
+                      <label for="budget">
+                        Budget <span class="hint">(optional)</span>
+                      </label>
+                      <select id="budget" name="budget">
+                        <option value="" selected>Rough budget (optional)</option>
+                      </select>
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="timeline">
+                      <label for="timeline">
+                        Timeframe <span class="hint">(optional)</span>
+                      </label>
+                      <select id="timeline" name="timeline">
+                        <option value="" selected>
+                          When do you need it? (optional)
+                        </option>
+                      </select>
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field field--full" data-field="description">
+                      <label for="description">
+                        The project <span class="req" aria-hidden="true">*</span>
+                        <span class="hint">
+                          — what you want done, what condition it is in, and
+                          anything you have already tried.
+                        </span>
+                      </label>
+                      <textarea
+                        id="description"
+                        name="description"
+                        maxlength="4000"
+                        required
+                      ></textarea>
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field field--full" data-field="referral">
+                      <label for="referral">
+                        How did you hear about us?
+                        <span class="hint">(optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="referral"
+                        name="referral"
+                        maxlength="120"
+                      />
+                      <span class="error" role="alert"></span>
+                    </div>
+                  </div>
+
+                  <!-- Honeypot. Real visitors never see or fill this. -->
+                  <div class="hp-field" aria-hidden="true">
+                    <label for="website">Website</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      tabindex="-1"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="form-footer">
+                    <button
+                      class="btn btn--primary btn--lg"
+                      type="submit"
+                      id="order-submit"
+                    >
+                      Send request
+                    </button>
+                    <p class="note">
+                      No payment now — this just starts the conversation.
+                    </p>
+                  </div>
+
+                  <div class="form-status" id="form-status" role="alert"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <aside class="sidebar">
+            <div class="side-card">
+              <h3>What happens next</h3>
+              <ol>
+                <li>Your request lands in the shop inbox.</li>
+                <li>We reply with questions, a rough cost and a timeframe.</li>
+                <li>Agree the plan and a deposit books your slot.</li>
+              </ol>
+            </div>
+
+            <div class="side-card">
+              <h3>Rather talk first?</h3>
+              <p>Nothing wrong with that — reach out however suits you.</p>
+              <dl class="contact-list">
+                <div data-requires="email">
+                  <dt>Email</dt>
+                  <dd><a href="#" data-site-link="email">hello@satogarage.com</a></dd>
+                </div>
+                <div data-requires="phone">
+                  <dt>Phone</dt>
+                  <dd><a href="#" data-site-link="phone"></a></dd>
+                </div>
+                <div>
+                  <dt>Instagram</dt>
+                  <dd>
+                    <a
+                      href="https://www.instagram.com/satogaragefb/"
+                      data-site-link="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >@satogaragefb</a
+                    >
+                  </dd>
+                </div>
+                <div data-requires="location">
+                  <dt>Where</dt>
+                  <dd data-site="location">Ask for the address when you book</dd>
+                </div>
+                <div data-requires="hours">
+                  <dt>Hours</dt>
+                  <dd data-site="hours">
+                    Mon–Fri, 9am–6pm · Weekends by appointment
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="side-card">
+              <h3>Helps us quote faster</h3>
+              <p>
+                Photos of the vehicle, any reference builds you like, and
+                whether it is currently running or driving. Send them over by
+                email once you have submitted the form.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="site-footer__grid">
+          <div>
+            <a class="brand" href="/">
+              <span class="brand__mark" aria-hidden="true">SG</span>
+              <span data-site="name">Sato Garage</span>
+            </a>
+            <p class="brand-tagline" data-site="tagline">
+              Custom builds, done right.
+            </p>
+          </div>
+
+          <div>
+            <h4>Pages</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/order">Order Custom</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Get in touch</h4>
+            <ul>
+              <li data-requires="email">
+                <a href="#" data-site-link="email">hello@satogarage.com</a>
+              </li>
+              <li data-requires="phone">
+                <a href="#" data-site-link="phone"></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/satogaragefb/"
+                  data-site-link="instagram"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >@satogaragefb</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <span>
+            &copy; <span data-current-year>2026</span>
+            <span data-site="name">Sato Garage</span>. All rights reserved.
+          </span>
+          <span data-site="hours">Mon–Fri, 9am–6pm · Weekends by appointment</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/assets/js/order.js"></script>
+  </body>
+</html>
