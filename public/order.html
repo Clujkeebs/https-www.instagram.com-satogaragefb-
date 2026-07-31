@@ -6,7 +6,7 @@
     <title>Order Custom — Sato Garage</title>
     <meta
       name="description"
-      content="Tell Sato Garage about your project: the vehicle, the work you want and your budget. Every request gets a real answer."
+      content="Order a custom fingerboard deck from Sato Garage: pick your width, concave, wood and finish. Every request gets a real answer."
     />
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link
@@ -37,7 +37,7 @@
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/order">Order Custom</a>
-          <a class="btn btn--primary" href="/order">Start a build</a>
+          <a class="btn btn--primary" href="/order">Order a deck</a>
         </nav>
       </div>
     </header>
@@ -46,10 +46,11 @@
       <section class="hero">
         <div class="wrap hero__inner">
           <span class="eyebrow">Custom order</span>
-          <h1>Tell us <span class="accent">what you want built.</span></h1>
+          <h1>Tell me <span class="accent">what to press.</span></h1>
           <p class="hero__lead">
-            The more detail you give, the more useful the first reply will be.
-            There are no wrong answers here — if you are not sure yet, say so.
+            The more detail you give, the more useful my first reply will be. If
+            you do not know your width or concave yet, pick "help me pick" and we
+            will sort it out together.
           </p>
         </div>
       </section>
@@ -69,8 +70,8 @@
               <p>Quote this reference if you follow up:</p>
               <div class="reference" id="order-reference">SG-000000</div>
               <p>
-                We read every request personally, so it will be a real reply
-                rather than an autoresponder — usually within a couple of days.
+                I read every request myself, so you will get a real reply rather
+                than an autoresponder — usually within a couple of days.
               </p>
               <a class="btn btn--ghost" href="/">Back to the home page</a>
             </div>
@@ -109,43 +110,74 @@
                       <span class="error" role="alert"></span>
                     </div>
 
-                    <div class="field" data-field="phone">
-                      <label for="phone">
-                        Phone <span class="hint">(optional)</span>
+                    <div class="field" data-field="instagram">
+                      <label for="instagram">
+                        Instagram <span class="hint">(optional)</span>
                       </label>
                       <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        autocomplete="tel"
-                        maxlength="40"
+                        type="text"
+                        id="instagram"
+                        name="instagram"
+                        placeholder="@yourhandle"
+                        maxlength="60"
                       />
                       <span class="error" role="alert"></span>
                     </div>
 
-                    <div class="field" data-field="vehicle">
-                      <label for="vehicle">
-                        Vehicle <span class="req" aria-hidden="true">*</span>
+                    <div class="field" data-field="quantity">
+                      <label for="quantity">
+                        How many decks?
+                        <span class="req" aria-hidden="true">*</span>
                       </label>
                       <input
-                        type="text"
-                        id="vehicle"
-                        name="vehicle"
-                        placeholder="Year, make and model"
-                        maxlength="120"
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        value="1"
+                        min="1"
+                        max="25"
+                        step="1"
                         required
                       />
                       <span class="error" role="alert"></span>
                     </div>
 
-                    <div class="field field--full" data-field="service">
-                      <label for="service">
-                        Type of work <span class="req" aria-hidden="true">*</span>
+                    <div class="field" data-field="width">
+                      <label for="width">
+                        Deck width <span class="req" aria-hidden="true">*</span>
                       </label>
-                      <select id="service" name="service" required>
-                        <option value="" disabled selected>
-                          Choose the type of work…
-                        </option>
+                      <select id="width" name="width" required>
+                        <option value="" disabled selected>Pick a width…</option>
+                      </select>
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="mold">
+                      <label for="mold">
+                        Mold / concave <span class="hint">(optional)</span>
+                      </label>
+                      <select id="mold" name="mold">
+                        <option value="" selected>Concave (optional)</option>
+                      </select>
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="wood">
+                      <label for="wood">
+                        Wood / plies <span class="hint">(optional)</span>
+                      </label>
+                      <select id="wood" name="wood">
+                        <option value="" selected>Wood build (optional)</option>
+                      </select>
+                      <span class="error" role="alert"></span>
+                    </div>
+
+                    <div class="field" data-field="finish">
+                      <label for="finish">
+                        Finish <span class="hint">(optional)</span>
+                      </label>
+                      <select id="finish" name="finish">
+                        <option value="" selected>Finish (optional)</option>
                       </select>
                       <span class="error" role="alert"></span>
                     </div>
@@ -174,10 +206,11 @@
 
                     <div class="field field--full" data-field="description">
                       <label for="description">
-                        The project <span class="req" aria-hidden="true">*</span>
+                        The deck <span class="req" aria-hidden="true">*</span>
                         <span class="hint">
-                          — what you want done, what condition it is in, and
-                          anything you have already tried.
+                          — colours, graphics, wood you like, decks you have
+                          ridden before. Anything you are unsure about, just say
+                          so.
                         </span>
                       </label>
                       <textarea
@@ -191,7 +224,7 @@
 
                     <div class="field field--full" data-field="referral">
                       <label for="referral">
-                        How did you hear about us?
+                        How did you hear about me?
                         <span class="hint">(optional)</span>
                       </label>
                       <input
@@ -226,6 +259,7 @@
                     </button>
                     <p class="note">
                       No payment now — this just starts the conversation.
+                      Nothing gets pressed until we have agreed a price.
                     </p>
                   </div>
 
@@ -239,19 +273,19 @@
             <div class="side-card">
               <h3>What happens next</h3>
               <ol>
-                <li>Your request lands in the shop inbox.</li>
-                <li>We reply with questions, a rough cost and a timeframe.</li>
-                <li>Agree the plan and a deposit books your slot.</li>
+                <li>Your request lands in my inbox.</li>
+                <li>I reply with any questions, a price and a timeframe.</li>
+                <li>Once we agree, it goes in the press queue.</li>
               </ol>
             </div>
 
             <div class="side-card">
-              <h3>Rather talk first?</h3>
-              <p>Nothing wrong with that — reach out however suits you.</p>
+              <h3>Rather just DM?</h3>
+              <p>Works too — reach out however suits you.</p>
               <dl class="contact-list">
                 <div data-requires="email">
                   <dt>Email</dt>
-                  <dd><a href="#" data-site-link="email">hello@satogarage.com</a></dd>
+                  <dd><a href="#" data-site-link="email">satogaragefingerboards@gmail.com</a></dd>
                 </div>
                 <div data-requires="phone">
                   <dt>Phone</dt>
@@ -283,11 +317,11 @@
             </div>
 
             <div class="side-card">
-              <h3>Helps us quote faster</h3>
+              <h3>Helps me quote faster</h3>
               <p>
-                Photos of the vehicle, any reference builds you like, and
-                whether it is currently running or driving. Send them over by
-                email once you have submitted the form.
+                Reference photos, decks you have ridden and liked, or a sketch of
+                the graphic. Send them over by email or DM once you have
+                submitted the form.
               </p>
             </div>
           </aside>
@@ -321,7 +355,7 @@
             <h4>Get in touch</h4>
             <ul>
               <li data-requires="email">
-                <a href="#" data-site-link="email">hello@satogarage.com</a>
+                <a href="#" data-site-link="email">satogaragefingerboards@gmail.com</a>
               </li>
               <li data-requires="phone">
                 <a href="#" data-site-link="phone"></a>

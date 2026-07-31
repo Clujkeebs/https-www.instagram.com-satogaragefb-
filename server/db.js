@@ -16,9 +16,12 @@ db.exec(`
     reference     TEXT    NOT NULL UNIQUE,
     name          TEXT    NOT NULL,
     email         TEXT    NOT NULL,
-    phone         TEXT    NOT NULL DEFAULT '',
-    vehicle       TEXT    NOT NULL,
-    service       TEXT    NOT NULL,
+    instagram     TEXT    NOT NULL DEFAULT '',
+    width         TEXT    NOT NULL,
+    wood          TEXT    NOT NULL DEFAULT '',
+    mold          TEXT    NOT NULL DEFAULT '',
+    finish        TEXT    NOT NULL DEFAULT '',
+    quantity      INTEGER NOT NULL DEFAULT 1,
     budget        TEXT    NOT NULL DEFAULT '',
     timeline      TEXT    NOT NULL DEFAULT '',
     description   TEXT    NOT NULL,
@@ -32,9 +35,10 @@ db.exec(`
 
 const insertStmt = db.prepare(`
   INSERT INTO orders
-    (reference, name, email, phone, vehicle, service, budget, timeline, description, referral, created_at)
+    (reference, name, email, instagram, width, wood, mold, finish, quantity,
+     budget, timeline, description, referral, created_at)
   VALUES
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const listStmt = db.prepare(`
@@ -45,7 +49,7 @@ const countStmt = db.prepare('SELECT COUNT(*) AS total FROM orders');
 
 /**
  * Human-friendly reference like SG-7F3K92 that a customer can quote in a
- * follow-up email.
+ * follow-up email or DM.
  */
 function makeReference() {
   const alphabet = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // no I/L/O/0/1
@@ -65,9 +69,12 @@ export function createOrder(order) {
         reference,
         order.name,
         order.email,
-        order.phone,
-        order.vehicle,
-        order.service,
+        order.instagram,
+        order.width,
+        order.wood,
+        order.mold,
+        order.finish,
+        order.quantity,
         order.budget,
         order.timeline,
         order.description,

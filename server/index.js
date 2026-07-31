@@ -49,16 +49,19 @@ app.use((req, res, next) => {
 app.get('/api/config', (req, res) => {
   res.json({
     name: site.name,
+    owner: site.owner,
     tagline: site.tagline,
     shortDescription: site.shortDescription,
-    foundedYear: site.foundedYear,
     email: site.email,
     phone: site.phone,
     location: site.location,
     hours: site.hours,
     instagramHandle: site.instagramHandle,
     instagramUrl: site.instagramUrl,
-    services: site.services,
+    widths: site.widths,
+    woods: site.woods,
+    molds: site.molds,
+    finishes: site.finishes,
     budgets: site.budgets,
     timelines: site.timelines,
     serviceCards: site.serviceCards,
@@ -86,7 +89,7 @@ app.post(
     try {
       const reference = createOrder(result.value);
       console.log(
-        `[order] ${reference} — ${result.value.service} — ${result.value.email}`,
+        `[order] ${reference} — ${result.value.quantity}x ${result.value.width} — ${result.value.email}`,
       );
       return res.status(201).json({ ok: true, reference });
     } catch (err) {

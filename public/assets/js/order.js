@@ -75,19 +75,22 @@ function validateLocally(data) {
   const errors = {};
 
   if (!data.name || data.name.trim().length < 2) {
-    errors.name = 'Please tell us your name.';
+    errors.name = 'Please tell me your name.';
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email || '')) {
     errors.email = 'That email address does not look right.';
   }
-  if (!data.vehicle || data.vehicle.trim().length < 2) {
-    errors.vehicle = 'Let us know what we are working on.';
+  if (!data.width) {
+    errors.width = 'Pick a deck width.';
   }
-  if (!data.service) {
-    errors.service = 'Pick the type of work you need.';
+  const qty = Number.parseInt(data.quantity, 10);
+  if (!Number.isInteger(qty) || qty < 1) {
+    errors.quantity = 'How many decks? One or more.';
+  } else if (qty > 25) {
+    errors.quantity = 'For more than 25, email me directly.';
   }
   if (!data.description || data.description.trim().length < 15) {
-    errors.description = 'A couple of sentences about the project, please.';
+    errors.description = 'A couple of sentences about the deck, please.';
   }
 
   return errors;
@@ -155,7 +158,10 @@ async function init() {
 
   const config = await getConfig();
   if (config) {
-    fillSelect(form.elements.service, config.services, 'Choose the type of work…');
+    fillSelect(form.elements.width, config.widths, 'Pick a width…');
+    fillSelect(form.elements.mold, config.molds, 'Concave (optional)');
+    fillSelect(form.elements.wood, config.woods, 'Wood build (optional)');
+    fillSelect(form.elements.finish, config.finishes, 'Finish (optional)');
     fillSelect(form.elements.budget, config.budgets, 'Rough budget (optional)');
     fillSelect(form.elements.timeline, config.timelines, 'When do you need it? (optional)');
   }

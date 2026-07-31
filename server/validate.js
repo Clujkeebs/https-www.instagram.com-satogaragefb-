@@ -3,18 +3,22 @@ import { site } from '../site.config.js';
 const LIMITS = {
   name: 80,
   email: 160,
-  phone: 40,
-  vehicle: 120,
+  instagram: 60,
   description: 4000,
   referral: 120,
 };
+
+const MAX_QUANTITY = 25;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 // Control characters, excluding \n and \r which are legal in the textarea.
 const CONTROL_RE = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g;
 
-const serviceValues = new Set(site.services.map((s) => s.value));
+const widthValues = new Set(site.widths.map((w) => w.value));
+const woodValues = new Set(site.woods.map((w) => w.value));
+const moldValues = new Set(site.molds.map((m) => m.value));
+const finishValues = new Set(site.finishes.map((f) => f.value));
 const budgetValues = new Set(site.budgets.map((b) => b.value));
 const timelineValues = new Set(site.timelines.map((t) => t.value));
 
@@ -39,9 +43,12 @@ export function validateOrder(body) {
   const value = {
     name: clean(raw.name),
     email: clean(raw.email).toLowerCase(),
-    phone: clean(raw.phone),
-    vehicle: clean(raw.vehicle),
-    service: clean(raw.service),
+    instagram: clean(raw.instagram).replace(/^@+/, ''),
+    width: clean(raw.width),
+    wood: clean(raw.wood),
+    mold: clean(raw.mold),
+    finish: clean(raw.finish),
+    quantity: Number.parseInt(clean(raw.quantity) || '1', 10),
     budget: clean(raw.budget),
     timeline: clean(raw.timeline),
     description: clean(raw.description),
@@ -49,7 +56,7 @@ export function validateOrder(body) {
   };
 
   if (value.name.length < 2) {
-    errors.name = 'Please tell us your name.';
+    errors.name = 'Please tell me your name.';
   } else if (value.name.length > LIMITS.name) {
     errors.name = `Keep this under ${LIMITS.name} characters.`;
   }
@@ -60,18 +67,30 @@ export function validateOrder(body) {
     errors.email = `Keep this under ${LIMITS.email} characters.`;
   }
 
-  if (value.phone.length > LIMITS.phone) {
-    errors.phone = `Keep this under ${LIMITS.phone} characters.`;
+  if (value.instagram.length > LIMITS.instagram) {
+    errors.instagram = `Keep this under ${LIMITS.instagram} characters.`;
   }
 
-  if (value.vehicle.length < 2) {
-    errors.vehicle = 'Let us know what we are working on.';
-  } else if (value.vehicle.length > LIMITS.vehicle) {
-    errors.vehicle = `Keep this under ${LIMITS.vehicle} characters.`;
+  if (!widthValues.has(value.width)) {
+    errors.width = 'Pick a deck width.';
   }
 
-  if (!serviceValues.has(value.service)) {
-    errors.service = 'Pick the type of work you need.';
+  if (value.wood && !woodValues.has(value.wood)) {
+    errors.wood = 'Pick one of the listed wood options.';
+  }
+
+  if (value.mold && !moldValues.has(value.mold)) {
+    errors.mold = 'Pick one of the listed molds.';
+  }
+
+  if (value.finish && !finishValues.has(value.finish)) {
+    errors.finish = 'Pick one of the listed finishes.';
+  }
+
+  if (!Number.isInteger(value.quantity) || value.quantity < 1) {
+    errors.quantity = 'How many decks? One or more.';
+  } else if (value.quantity > MAX_QUANTITY) {
+    errors.quantity = `For more than ${MAX_QUANTITY}, email me directly.`;
   }
 
   if (value.budget && !budgetValues.has(value.budget)) {
@@ -83,7 +102,7 @@ export function validateOrder(body) {
   }
 
   if (value.description.length < 15) {
-    errors.description = 'A couple of sentences about the project, please.';
+    errors.description = 'A couple of sentences about the deck, please.';
   } else if (value.description.length > LIMITS.description) {
     errors.description = `Keep this under ${LIMITS.description} characters.`;
   }
@@ -96,4 +115,4 @@ export function validateOrder(body) {
   return { ok: true, value };
 }
 
-export { LIMITS };
+export { LIMITS, MAX_QUANTITY };

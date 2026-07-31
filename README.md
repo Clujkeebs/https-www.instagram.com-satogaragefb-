@@ -1,24 +1,13 @@
 # Sato Garage — website
 
-A small full-stack site for the shop: a home page, an about page, and a custom
-order form that saves real submissions to a database.
+A small full-stack site for [@satogaragefb](https://www.instagram.com/satogaragefb/)
+— handmade fingerboard decks by Valor Hirsch. Home page, about page, and a
+custom deck order form that saves real submissions to a database.
 
 - **Frontend** — plain HTML, CSS and ES modules. No build step, no framework.
 - **Backend** — Node + Express, with SQLite (via Node's built-in `node:sqlite`)
   for storing orders.
 - **Dependencies** — one (`express`). Everything else is standard library.
-
----
-
-## Heads up: the business details are placeholders
-
-The Instagram account ([@satogaragefb](https://www.instagram.com/satogaragefb/))
-is not readable without logging in, so nothing about the real business could be
-looked up. **The shop name, tagline, email, hours, founding year and all of the
-page copy are plausible placeholders.** They need to be replaced before this
-goes anywhere near a real customer.
-
-Start with `site.config.js` — that one file covers most of it.
 
 ---
 
@@ -34,14 +23,32 @@ Requires Node 22.5 or newer (that's when `node:sqlite` landed).
 
 ---
 
+## What's real and what needs checking
+
+The shop name, owner, email, Instagram handle and the "handmade in the USA"
+line all come from the Instagram bio. Everything else is a reasonable default
+that Valor should look over:
+
+- **Deck options** — the widths (32–35 mm), ply counts, concave and finish
+  choices in `site.config.js` are sensible fingerboard defaults, not his actual
+  range. Adjust them to whatever he really presses.
+- **Prices** — the budget brackets are guesses. Change them to match real
+  pricing.
+- **The About story** — written from the bio alone. The section is marked
+  `<!-- EDIT -->` and should be replaced with the real history.
+- **Photos** — all three image slots are still placeholders.
+
+---
+
 ## Editing the content
 
 ### 1. `site.config.js` — everything factual
 
-Shop name, tagline, contact details, hours, the service/budget/timeframe
-dropdown options on the order form, the service cards and the "how it works"
-steps. Change a value, restart, done — it flows through every page and the
-server validates order submissions against the same lists.
+Shop name, owner, contact details, and every dropdown on the order form
+(widths, woods, molds, finishes, budgets, timeframes), plus the home page cards
+and process steps. Change a value, restart, done — it flows through every page,
+and the server validates incoming orders against the same lists, so adding an
+option here is all it takes to start accepting it.
 
 Leaving `phone` (or `email`) as an empty string hides it everywhere
 automatically, so there are no dead links while a detail is still unknown.
@@ -61,11 +68,12 @@ is marked with `<!-- EDIT -->` comments:
 ### 3. Photos
 
 There are three placeholder blocks (`<div class="split__media">…</div>`) marked
-in the HTML. Drop real images into `public/assets/img/` and swap each block for:
+in the HTML. Drop real deck photos into `public/assets/img/` and swap each
+block for:
 
 ```html
 <div class="split__media">
-  <img src="/assets/img/build-01.jpg" alt="Describe the photo here" />
+  <img src="/assets/img/deck-01.jpg" alt="Describe the photo here" />
 </div>
 ```
 
