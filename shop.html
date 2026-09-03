@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Sato Garage</title>
+<meta name="description" content="Handmade fingerboard decks, completes and parts from Sato Garage. Pressed in small batches.">
+<link rel="icon" href="assets/img/logo-placeholder.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <img data-logo src="assets/img/logo-placeholder.svg" alt="" width="46" height="46">
+      <span>
+        <span class="brand__name">Sato Garage</span>
+        <span class="brand__sub">Fingerboards</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html" aria-current="page">Shop</a>
+      <a href="custom.html">Custom</a>
+      <a data-instagram href="#" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Everything in stock</p>
+      <h1>The shop</h1>
+      <p class="lede" style="margin-top:1.25rem">
+        Decks, completes and the parts to keep them rolling. Sold out means the batch is
+        gone — restocks get announced on Instagram.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="filters" data-filters>
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="decks" aria-pressed="false">Decks</button>
+        <button class="chip" data-filter="completes" aria-pressed="false">Completes</button>
+        <button class="chip" data-filter="parts" aria-pressed="false">Parts</button>
+        <button class="chip" data-filter="custom" aria-pressed="false">Custom</button>
+      </div>
+      <div class="grid" data-shop-grid></div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <p class="eyebrow">Nothing in your size?</p>
+      <h2>Get one built</h2>
+      <p class="lede">Pick the shape, concave and graphic — it gets pressed to order.</p>
+      <div><a class="btn" href="custom.html">Start a custom order</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <h4>Sato Garage</h4>
+        <p>Handmade fingerboard decks, pressed and finished one at a time.</p>
+        <p data-shipping-note></p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">All products</a></li>
+          <li><a href="custom.html">Custom orders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a data-instagram href="#" target="_blank" rel="noopener"><span data-handle>@satogaragefb</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© <span data-year></span> Sato Garage. All rights reserved.</span>
+      <span>Made in the garage.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/checkout.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

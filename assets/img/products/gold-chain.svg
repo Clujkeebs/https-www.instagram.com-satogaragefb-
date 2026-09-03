@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Gold Chain deck">
+<defs>
+  <filter id="r" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#2A211A"/><stop offset="1" stop-color="#191310"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#EFD27E"/><stop offset="0.5" stop-color="#C9A227"/>
+    <stop offset="1" stop-color="#8A6A18"/>
+  </linearGradient>
+</defs>
+<rect width="800" height="800" fill="#0E0D0C"/>
+<circle cx="400" cy="400" r="300" fill="#171513"/>
+
+<g filter="url(#r)" transform="translate(400 400)">
+  <g transform="rotate(-14)">
+    <!-- shadow -->
+    <path d="M-108 -300 C-64 -330 64 -330 108 -300 C124 -288 124 -262 116 -244
+             L116 244 C124 262 124 288 108 300 C64 330 -64 330 -108 300
+             C-124 288 -124 262 -116 244 L-116 -244 C-124 -262 -124 -288 -108 -300 Z"
+          fill="#000" opacity="0.55" transform="translate(14 18)"/>
+    <!-- deck -->
+    <path d="M-108 -300 C-64 -330 64 -330 108 -300 C124 -288 124 -262 116 -244
+             L116 244 C124 262 124 288 108 300 C64 330 -64 330 -108 300
+             C-124 288 -124 262 -116 244 L-116 -244 C-124 -262 -124 -288 -108 -300 Z"
+          fill="url(#wood)" stroke="#0A0908" stroke-width="6"/>
+    
+  <g fill="none"><g stroke="#8A6A18" stroke-width="11"><ellipse cx="-74" cy="-130" rx="15" ry="10" transform="rotate(90 -74 -130)"/><ellipse cx="-70" cy="-112" rx="15" ry="10" transform="rotate(67 -70 -112)"/><ellipse cx="-60" cy="-96" rx="15" ry="10" transform="rotate(47 -60 -96)"/><ellipse cx="-43" cy="-83" rx="15" ry="10" transform="rotate(30 -43 -83)"/><ellipse cx="-23" cy="-75" rx="15" ry="10" transform="rotate(14 -23 -75)"/><ellipse cx="-0" cy="-72" rx="15" ry="10" transform="rotate(0 -0 -72)"/><ellipse cx="23" cy="-75" rx="15" ry="10" transform="rotate(-14 23 -75)"/><ellipse cx="43" cy="-83" rx="15" ry="10" transform="rotate(-30 43 -83)"/><ellipse cx="60" cy="-96" rx="15" ry="10" transform="rotate(-47 60 -96)"/><ellipse cx="70" cy="-112" rx="15" ry="10" transform="rotate(-67 70 -112)"/><ellipse cx="74" cy="-130" rx="15" ry="10" transform="rotate(-90 74 -130)"/></g><g stroke="url(#gold)" stroke-width="7"><ellipse cx="-74" cy="-130" rx="15" ry="10" transform="rotate(90 -74 -130)"/><ellipse cx="-70" cy="-112" rx="15" ry="10" transform="rotate(67 -70 -112)"/><ellipse cx="-60" cy="-96" rx="15" ry="10" transform="rotate(47 -60 -96)"/><ellipse cx="-43" cy="-83" rx="15" ry="10" transform="rotate(30 -43 -83)"/><ellipse cx="-23" cy="-75" rx="15" ry="10" transform="rotate(14 -23 -75)"/><ellipse cx="-0" cy="-72" rx="15" ry="10" transform="rotate(0 -0 -72)"/><ellipse cx="23" cy="-75" rx="15" ry="10" transform="rotate(-14 23 -75)"/><ellipse cx="43" cy="-83" rx="15" ry="10" transform="rotate(-30 43 -83)"/><ellipse cx="60" cy="-96" rx="15" ry="10" transform="rotate(-47 60 -96)"/><ellipse cx="70" cy="-112" rx="15" ry="10" transform="rotate(-67 70 -112)"/><ellipse cx="74" cy="-130" rx="15" ry="10" transform="rotate(-90 74 -130)"/></g></g>
+  <g fill="none"><g stroke="#8A6A18" stroke-width="11"><ellipse cx="-74" cy="10" rx="15" ry="10" transform="rotate(270 -74 10)"/><ellipse cx="-70" cy="28" rx="15" ry="10" transform="rotate(247 -70 28)"/><ellipse cx="-60" cy="44" rx="15" ry="10" transform="rotate(227 -60 44)"/><ellipse cx="-43" cy="57" rx="15" ry="10" transform="rotate(210 -43 57)"/><ellipse cx="-23" cy="65" rx="15" ry="10" transform="rotate(194 -23 65)"/><ellipse cx="-0" cy="68" rx="15" ry="10" transform="rotate(180 -0 68)"/><ellipse cx="23" cy="65" rx="15" ry="10" transform="rotate(166 23 65)"/><ellipse cx="43" cy="57" rx="15" ry="10" transform="rotate(150 43 57)"/><ellipse cx="60" cy="44" rx="15" ry="10" transform="rotate(133 60 44)"/><ellipse cx="70" cy="28" rx="15" ry="10" transform="rotate(113 70 28)"/><ellipse cx="74" cy="10" rx="15" ry="10" transform="rotate(90 74 10)"/></g><g stroke="url(#gold)" stroke-width="7"><ellipse cx="-74" cy="10" rx="15" ry="10" transform="rotate(270 -74 10)"/><ellipse cx="-70" cy="28" rx="15" ry="10" transform="rotate(247 -70 28)"/><ellipse cx="-60" cy="44" rx="15" ry="10" transform="rotate(227 -60 44)"/><ellipse cx="-43" cy="57" rx="15" ry="10" transform="rotate(210 -43 57)"/><ellipse cx="-23" cy="65" rx="15" ry="10" transform="rotate(194 -23 65)"/><ellipse cx="-0" cy="68" rx="15" ry="10" transform="rotate(180 -0 68)"/><ellipse cx="23" cy="65" rx="15" ry="10" transform="rotate(166 23 65)"/><ellipse cx="43" cy="57" rx="15" ry="10" transform="rotate(150 43 57)"/><ellipse cx="60" cy="44" rx="15" ry="10" transform="rotate(133 60 44)"/><ellipse cx="70" cy="28" rx="15" ry="10" transform="rotate(113 70 28)"/><ellipse cx="74" cy="10" rx="15" ry="10" transform="rotate(90 74 10)"/></g></g>
+  <text x="0" y="176" font-family="Impact, Haettenschweiler, sans-serif" font-size="50"
+        fill="url(#gold)" text-anchor="middle" letter-spacing="6">GOLD</text>
+  <text x="0" y="226" font-family="Impact, Haettenschweiler, sans-serif" font-size="50"
+        fill="#F0E4D2" text-anchor="middle" letter-spacing="6">CHAIN</text>
+
+    <!-- ply edge highlight -->
+    <path d="M-116 -244 L-116 244 M116 -244 L116 244" stroke="#C89B6C" stroke-width="3" opacity="0.35"/>
+  </g>
+</g>
+</svg>

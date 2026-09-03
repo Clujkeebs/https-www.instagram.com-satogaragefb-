@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Complete setup">
+<defs>
+  <filter id="r" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="23" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#2A211A"/><stop offset="1" stop-color="#191310"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#EFD27E"/><stop offset="0.5" stop-color="#C9A227"/>
+    <stop offset="1" stop-color="#8A6A18"/>
+  </linearGradient>
+</defs>
+<rect width="800" height="800" fill="#0E0D0C"/>
+<circle cx="400" cy="400" r="300" fill="#171513"/>
+
+<g filter="url(#r)" transform="translate(400 410) rotate(-14)">
+  <path d="M-104 -286 C-62 -314 62 -314 104 -286 C118 -274 118 -250 111 -233
+           L111 233 C118 250 118 274 104 286 C62 314 -62 314 -104 286
+           C-118 274 -118 250 -111 233 L-111 -233 C-118 -250 -118 -274 -104 -286 Z"
+        fill="#000" opacity="0.5" transform="translate(12 16)"/>
+  <path d="M-104 -286 C-62 -314 62 -314 104 -286 C118 -274 118 -250 111 -233
+           L111 233 C118 250 118 274 104 286 C62 314 -62 314 -104 286
+           C-118 274 -118 250 -111 233 L-111 -233 C-118 -250 -118 -274 -104 -286 Z"
+        fill="url(#wood)" stroke="#0A0908" stroke-width="6"/>
+  <g fill="#F0E4D2" opacity="0.92">
+    <circle cx="0" cy="-70" r="60"/>
+  </g>
+  <text x="0" y="-56" font-family="Impact, Haettenschweiler, sans-serif" font-size="40"
+        fill="#171310" text-anchor="middle">SG</text>
+  <text x="0" y="120" font-family="Impact, Haettenschweiler, sans-serif" font-size="42"
+        fill="#C9A227" text-anchor="middle" letter-spacing="3">COMPLETE</text>
+  <!-- trucks + wheels -->
+  <g>
+    <rect x="-84" y="-210" width="168" height="20" rx="10" fill="#8E8C88"/>
+    <rect x="-84" y="190" width="168" height="20" rx="10" fill="#8E8C88"/>
+    <g fill="#EDE7DC" stroke="#0A0908" stroke-width="5">
+      <circle cx="-92" cy="-200" r="26"/><circle cx="92" cy="-200" r="26"/>
+      <circle cx="-92" cy="200" r="26"/><circle cx="92" cy="200" r="26"/>
+    </g>
+    <g fill="#C9A227">
+      <circle cx="-92" cy="-200" r="9"/><circle cx="92" cy="-200" r="9"/>
+      <circle cx="-92" cy="200" r="9"/><circle cx="92" cy="200" r="9"/>
+    </g>
+  </g>
+</g>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Garage Series deck">
+<defs>
+  <filter id="r" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="17" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#2A211A"/><stop offset="1" stop-color="#191310"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#EFD27E"/><stop offset="0.5" stop-color="#C9A227"/>
+    <stop offset="1" stop-color="#8A6A18"/>
+  </linearGradient>
+</defs>
+<rect width="800" height="800" fill="#0E0D0C"/>
+<circle cx="400" cy="400" r="300" fill="#171513"/>
+
+<g filter="url(#r)" transform="translate(400 400)">
+  <g transform="rotate(-14)">
+    <!-- shadow -->
+    <path d="M-108 -300 C-64 -330 64 -330 108 -300 C124 -288 124 -262 116 -244
+             L116 244 C124 262 124 288 108 300 C64 330 -64 330 -108 300
+             C-124 288 -124 262 -116 244 L-116 -244 C-124 -262 -124 -288 -108 -300 Z"
+          fill="#000" opacity="0.55" transform="translate(14 18)"/>
+    <!-- deck -->
+    <path d="M-108 -300 C-64 -330 64 -330 108 -300 C124 -288 124 -262 116 -244
+             L116 244 C124 262 124 288 108 300 C64 330 -64 330 -108 300
+             C-124 288 -124 262 -116 244 L-116 -244 C-124 -262 -124 -288 -108 -300 Z"
+          fill="url(#wood)" stroke="#0A0908" stroke-width="6"/>
+    
+  <g stroke="#C89B6C" stroke-width="9" opacity="0.75">
+    <path d="M-96 -230 L96 -230 M-96 -190 L96 -190 M-96 -150 L96 -150
+             M-96 -110 L96 -110 M-96 -70 L96 -70 M-96 -30 L96 -30
+             M-96 10 L96 10 M-96 50 L96 50 M-96 90 L96 90"/>
+  </g>
+  <rect x="-100" y="130" width="200" height="96" fill="#F0E4D2" transform="rotate(-2)"/>
+  <text x="0" y="196" font-family="Impact, Haettenschweiler, sans-serif" font-size="46"
+        fill="#171310" text-anchor="middle" letter-spacing="2" transform="rotate(-2)">GARAGE</text>
+  <circle cx="0" cy="-260" r="26" fill="none" stroke="#F0E4D2" stroke-width="6"/>
+
+    <!-- ply edge highlight -->
+    <path d="M-116 -244 L-116 244 M116 -244 L116 244" stroke="#C89B6C" stroke-width="3" opacity="0.35"/>
+  </g>
+</g>
+</svg>

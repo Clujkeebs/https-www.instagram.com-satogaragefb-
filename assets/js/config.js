@@ -9,7 +9,7 @@ window.SATO_CONFIG = {
     blurb:
       "Small-batch fingerboard decks pressed, shaped and finished by hand. No mass production — every deck leaves the garage one at a time.",
     email: "", // e.g. "orders@satogarage.com" — leave empty to hide the email link
-    logo: "assets/img/logo.png", // drop the real logo here; falls back to the badge mark
+    logo: "assets/img/logo.png", // upload the real logo to this path — it swaps in automatically
   },
 
   social: {
